@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Image;
 use App\Models\Mansion;
+use App\MyUtil;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
@@ -86,24 +86,8 @@ class AdminMansionController extends Controller
         $mansion->architecture = $request->string('architecture');
         $mansion->note = $request->note;
         $mansion->private = $request->private;
-        $mansion->image1 = "a";
-        $mansion->image2 = "a";
-        $mansion->image3 = "a";
-        $mansion->image4 = "a";
         $mansion->save();
       
-        // foreach ([1, 2, 3, 4] as $id) {
-        //   $name = "image{$id}";
-        //   $image = $_FILES[$name];
-        //   if (!empty($image["name"])) {
-        //     $filename = Uuid::uuid4() . strrchr($image["name"], ".");
-        //     move_uploaded_file($image["tmp_name"], "./uploads/img/" . $filename);
-        //     $mansion->$name = $filename;
-        //   } elseif ($_POST["imageClear{$id}"] == "1") {
-        //     $mansion->$name = "";
-        //   }
-        // }
-
         return redirect("/admin/mansions/{$mansion->id}/edit");
     }
     
@@ -145,7 +129,9 @@ class AdminMansionController extends Controller
     }
 
     public function image (Request $request, Mansion $mansion) {
-        $mansion->image = $request->hasFile('image') ? $request->file('image')->store('img') : null;
+        $mansion->image = $request->hasFile('image')
+        ? MyUtil::thumbnail($request->file('image')->store('img'))
+        : null;
         $mansion->save();
 
         return back()->with('toast', ['success', "{$mansion->title}を更新しました"]);

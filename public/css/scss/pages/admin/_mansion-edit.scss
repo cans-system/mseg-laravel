@@ -104,12 +104,10 @@
       &.img {
         .item-body  {
           ul {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
             gap: 12px;
             li {
-              flex: 25%;
               background-color: #eee;
               padding: 12px;
               text-align: center;

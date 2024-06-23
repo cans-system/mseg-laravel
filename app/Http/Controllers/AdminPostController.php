@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\MyUtil;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -36,7 +37,7 @@ class AdminPostController extends Controller
         $post->published_at = $request->published_at;
         $post->private = $request->private;
         if ($request->hasFile('image')) {
-            $post->image = $request->file('image')->store('img');
+            $post->image = MyUtil::thumbnail($request->file('image')->store('img'));
         } elseif ($request->boolean('imageClear1')) {
             $post->image = "";
         }
@@ -61,7 +62,7 @@ class AdminPostController extends Controller
         $post->published_at = $request->published_at;
         $post->private = $request->private;
         if ($request->hasFile('image')) {
-            $post->image = $request->file('image')->store('img');
+            $post->image = MyUtil::thumbnail($request->file('image')->store('img'));
         } elseif ($request->boolean('imageClear1')) {
             $post->image = "";
         }

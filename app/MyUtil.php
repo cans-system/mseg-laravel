@@ -1,6 +1,8 @@
 <?php
 namespace App;
 
+use Intervention\Image\Laravel\Facades\Image;
+
 class MyUtil {
   public static function make_times($min=0, $max=86400, $step=60) {
     $array = [];
@@ -66,5 +68,16 @@ class MyUtil {
 
   public static function remove_hyphen(string $tel) {
     return substr_replace(substr_replace($tel, '-', 3, 0), '-', 8, 0);
+  }
+
+  public static function thumbnail(string $path) {
+    $thumbnail_name = uniqid().'.jpg';
+    $thumbnail_path = storage_path('app/uploads/img/'.$thumbnail_name);
+
+    $img = Image::read(storage_path('app/uploads/'.$path));
+    $img->cover(1280, 768);
+    $img->save($thumbnail_path);
+
+    return 'img/'.$thumbnail_name;
   }
 }

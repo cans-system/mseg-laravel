@@ -23,7 +23,7 @@
       </p>
     </div>
     <div class="field-item">
-      <div class="item-head"><label for="">画像をアップロード</label></div>
+      <div class="item-head" style="margin-bottom: 8px;"><label for="">画像をアップロード</label></div>
       <div class="item-body">
         <form action="/admin/mansions/{{ $mansion->id }}/images" enctype="multipart/form-data" method="post">
           @csrf
@@ -37,7 +37,9 @@
           <ul>
             <li>
               <div class="img-wrapper">
-                <img src="{{ $mansion->getImageUrl('image') }}" alt="" id="preview1">
+                <a href="{{ $mansion->getImageUrl('image') }}">
+                  <img src="{{ $mansion->getImageUrl('image') }}" alt="" id="preview1">
+                </a>
               </div>
               <div class="img-controller">
                 <label for="image">変更</label>
@@ -51,7 +53,9 @@
             @foreach ($mansion->images as $image)
               <li>
                 <div class="img-wrapper">
-                  <img src="{{ asset('uploads/'.$image->image) }}" alt="" id="preview1">
+                  <a href="{{ asset('uploads/'.$image->image) }}">
+                    <img src="{{ asset('uploads/'.$image->image) }}" alt="" id="preview1">
+                  </a>
                 </div>
                 <div class="img-controller">
                   <div class=""></div>

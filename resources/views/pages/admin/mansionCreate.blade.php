@@ -15,6 +15,9 @@
         <span>新規登録</span>
       </p>
     </div>
+    <div style="margin-bottom: 12px;">
+      ※画像の設定は作成後に行えます
+    </div>
     <form action="/admin/mansions" method="post" enctype="multipart/form-data">
       @csrf
       <x-admin.mansionForm :mansion="$mansion" />

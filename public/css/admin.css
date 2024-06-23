@@ -885,12 +885,11 @@ select {
   flex: 100%;
 }
 .admin-mansions-edit .admin-mansion-form .field-item.img .item-body ul {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 12px;
 }
 .admin-mansions-edit .admin-mansion-form .field-item.img .item-body ul li {
-  flex: 25%;
   background-color: #eee;
   padding: 12px;
   text-align: center;
@@ -1047,3 +1046,5 @@ footer .footer-icon {
 footer h1 {
   font-size: 32px;
 }
+
+/*# sourceMappingURL=admin.css.map */

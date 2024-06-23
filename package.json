@@ -3,11 +3,16 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "sass": "sass public/css/scss/style.scss:public/css/style.css public/css/scss/admin.scss:public/css/admin.css",
+        "sass:watch": "sass --watch public/css/scss/style.scss:public/css/style.css public/css/scss/admin.scss:public/css/admin.css"
     },
     "devDependencies": {
         "axios": "^1.6.4",
         "laravel-vite-plugin": "^1.0",
         "vite": "^5.0"
+    },
+    "dependencies": {
+        "sass": "^1.77.6"
     }
 }
