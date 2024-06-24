@@ -38,7 +38,7 @@ class AdminMansionController extends Controller
         $mansions = $query
         ->when($order == "latest", function (Builder $query) {
             $query->latest();
-        }, function (Builder $query, string $order) {
+        }, function (Builder $query) use ($order) {
             $query->when($order == "price", function (Builder $query) {
                 $query->orderBy('unit_price');
             }, function (Builder $query) {
