@@ -76,8 +76,7 @@
       @method('PUT')
       <x-admin.mansionForm :mansion="$mansion" />
       <div class="admin-mansion-footer">
-        <input type="hidden" name="_method" value="PUT">
-        <button type="button" onclick="submitOnClick()"><span>更新</span></button>
+        <button><span>更新</span></button>
       </div>
     </form>
   </div>
