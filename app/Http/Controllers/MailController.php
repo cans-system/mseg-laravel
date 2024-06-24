@@ -11,17 +11,17 @@ use Illuminate\Support\Facades\Mail;
 class MailController extends Controller
 {
     public function contact (Request $request) {
-        Mail::to('info@mseg.jp')->send(new Contact($request));
+        Mail::to(env('MAIL_SEND_TO'))->send(new Contact($request));
         return view('pages.contact', ['sended' => true]);
     }
 
     public function approval (Request $request) {
-        Mail::to('info@mseg.jp')->send(new Approval($request));
+        Mail::to(env('MAIL_SEND_TO'))->send(new Approval($request));
         return view('pages.approval', ['sended' => true]);
     }
 
     public function survey (Request $request) {
-        Mail::to('info@mseg.jp')->send(new Survey($request));
+        Mail::to(env('MAIL_SEND_TO'))->send(new Survey($request));
         return view('pages.survey', ['sended' => true]);
     }
 }
