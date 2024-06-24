@@ -38,7 +38,7 @@ class Survey extends Mailable
     public function content(): Content
     {
         return new Content(
-            text: 'mails.survey',
+            view: 'mails.survey',
         );
     }
 

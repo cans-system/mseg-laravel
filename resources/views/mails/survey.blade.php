@@ -1,3 +1,4 @@
+<x-mail::message>
 【お客様情報】
 名前: {{ $request->first_name }} {{ $request->last_name }}
 名前(ひらがな): {{ $request->first_name_gana }} {{ $request->last_name_gana }}
@@ -24,3 +25,4 @@
 ご希望物件: {{ $request->request_property }}
 ご希望地域: {{ $request->request_area }}
 備考: {{ $request->note }}
+</x-mail::message>

@@ -1,3 +1,4 @@
+<x-mail::message>
 【物件情報】
 マンション名・棟: {{ $request->manshion_name_bldg }}
 部屋番号: {{ $request->room_number }}
@@ -15,3 +16,4 @@
 【お問い合わせ内容】
 お問い合わせ内容: {{ $request->contact_content }}
 備考: {{ $request->note }}
+</x-mail::message>

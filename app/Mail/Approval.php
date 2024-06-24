@@ -38,7 +38,7 @@ class Approval extends Mailable
     public function content(): Content
     {
         return new Content(
-            text: 'mails.approval',
+            view: 'mails.approval',
         );
     }
 
