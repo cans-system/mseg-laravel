@@ -15,7 +15,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        DB::unprepared(Storage::disk('local')->get('seeder.sql'));
+        DB::unprepared(Storage::disk('local')->get(env('SEEDER_SQL')));
 
         DB::update('update mansions set image1=null where image1=""');
         DB::update('update mansions set image2=null where image2=""');
