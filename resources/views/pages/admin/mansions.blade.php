@@ -113,7 +113,8 @@
               </div>
               <div>
                 <form action="/admin/mansions/{{ $mansion->id }}" method="post" onsubmit="return window.confirm('本当に削除しますか？');">
-                  <input type="hidden" name="_method" value="DELETE">
+                  @csrf
+                  @method('DELETE')
                   <input class="delete" type="submit" value="削除">
                 </form>
               </div>
