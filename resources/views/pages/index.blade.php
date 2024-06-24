@@ -106,7 +106,7 @@
       @foreach ($mansions as $mansion)
         <li class="grid-item">
           <img src="{{ $mansion->getImageUrl("image") }}" alt="">
-          <a href="/mansions/{$mansion->id}">More</a>
+          <a href="/mansions/{{ $mansion->id }}">More</a>
         </li>
       @endforeach
     </ul>
