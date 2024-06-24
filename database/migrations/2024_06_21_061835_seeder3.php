@@ -17,7 +17,8 @@ return new class extends Migration
 
         foreach ($mansions as $mansion) {
             if (Storage::exists($mansion->image1)) {
-                $path = storage_path('app/uploads/'.$mansion->image1);
+                // $path = storage_path('app/uploads/'.$mansion->image1);
+                $path = 'storage/app/uploads/'.$mansion->image1;
                 
                 $thumbnail_name = uniqid().'.jpg';
                 $thumbnail_path = storage_path('app/uploads/img/'.$thumbnail_name);
