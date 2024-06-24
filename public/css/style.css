@@ -2857,13 +2857,13 @@ footer .copyright {
   white-space: pre-wrap;
 }
 .mansion-info .mansion-gallery .grid-list {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 10px;
 }
 @media screen and (max-width: 991px) {
   .mansion-info .mansion-gallery .grid-list {
-    flex-wrap: wrap;
+    grid-template-columns: repeat(2, 1fr);
     gap: 5px;
   }
 }

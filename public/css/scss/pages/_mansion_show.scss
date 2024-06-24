@@ -151,11 +151,11 @@
     }
   }
   .mansion-gallery .grid-list {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 10px;
     @include w991 {
-      flex-wrap: wrap;
+      grid-template-columns: repeat(2, 1fr);
       gap: 5px;
     }
     li {
