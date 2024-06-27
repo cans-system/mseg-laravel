@@ -12,7 +12,7 @@
         @foreach ($posts as $post)
           <li class="mansion-item">
             <div class="item-icon">
-              <img src="{{ asset('uploads/'.$post->thumbnail) }}" alt="">
+              <img src="{{ $post->getImageUrl("thumbnail") }}" alt="">
             </div>
             <div class="item-content">
               <h4>
