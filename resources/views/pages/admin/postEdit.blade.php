@@ -27,7 +27,6 @@
       @method('PUT')
       <x-admin.postForm :post="$post" />
       <div class="admin-mansion-footer">
-        <input type="hidden" name="_method" value="PUT">
         <button type="button" onclick="submitOnClick()"><span>更新</span></button>
       </div>
     </form>
