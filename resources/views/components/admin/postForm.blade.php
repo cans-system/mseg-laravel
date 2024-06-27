@@ -95,7 +95,7 @@
   function imageClear(id) {
     var obj = document.getElementById("mansionImg" + id);
     obj.value = "";
-    document.getElementById('preview' + id).src = "/assets/img/no-image.png') }}";
+    document.getElementById('preview' + id).src = "/img/no-image.png";
     document.getElementById('imageClear' + id).value = 1;
   }
 

@@ -38,8 +38,6 @@ class AdminPostController extends Controller
         $post->private = $request->private;
         if ($request->hasFile('image')) {
             $post->image = MyUtil::thumbnail($request->file('image')->store('img'));
-        } elseif ($request->boolean('imageClear1')) {
-            $post->image = "";
         }
         $post->save();
 
