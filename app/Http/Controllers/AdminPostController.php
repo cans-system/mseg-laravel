@@ -69,7 +69,7 @@ class AdminPostController extends Controller
         return back()->with('toast', ['success', "{$post->title}を更新しました"]);
     }
     
-    public function delete(Post $post) {     
+    public function destroy(Post $post) {     
         $post->delete();
       
         return back()->with('toast', ['success', "{$post->title}を削除しました"]);
