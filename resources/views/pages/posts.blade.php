@@ -22,7 +22,7 @@
         @foreach ($posts as $post)
           <li class="grid-item">
             <a href="/posts/{{ $post->id }}">
-              <img src="{{ asset('uploads/'.$post->thumbnail) }}" alt="">
+              <img src="{{ $post->getImageUrl("thumbnail") }}" alt="">
               <div>
                 <p>
                   {{ $post->title }}

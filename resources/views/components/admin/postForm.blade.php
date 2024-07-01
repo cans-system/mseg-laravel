@@ -23,7 +23,9 @@
       <ul>
         <li>
           <div class="img-wrapper">
-            <img src="{{ $post->getImageUrl('image') }}" alt="" id="preview1">
+            <a href="{{ $post->getImageUrl('image') }}">
+              <img src="{{ $post->getImageUrl('image') }}" alt="" id="preview1">
+            </a>
           </div>
           <div class="img-controller">
             <label for="mansionImg1">変更</label>

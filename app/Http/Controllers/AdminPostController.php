@@ -11,7 +11,7 @@ class AdminPostController extends Controller
 {
     public function index() {
         return view('pages.admin.posts', [
-            'posts' => Post::all()
+            'posts' => Post::latest()->get()
         ]);
     }
     
@@ -37,7 +37,8 @@ class AdminPostController extends Controller
         $post->published_at = $request->published_at;
         $post->private = $request->private;
         if ($request->hasFile('image')) {
-            $post->image = MyUtil::thumbnail($request->file('image')->store('img'));
+            $post->image = $request->file('image')->store('img');
+            $post->thumbnail = MyUtil::thumbnail($request->file('image')->store('img'));
         }
         $post->save();
 
@@ -60,9 +61,8 @@ class AdminPostController extends Controller
         $post->published_at = $request->published_at;
         $post->private = $request->private;
         if ($request->hasFile('image')) {
-            $post->image = MyUtil::thumbnail($request->file('image')->store('img'));
-        } elseif ($request->boolean('imageClear1')) {
-            $post->image = "";
+            $post->image = $request->file('image')->store('img');
+            $post->thumbnail = MyUtil::thumbnail($request->file('image')->store('img'));
         }
         $post->save();       
 
