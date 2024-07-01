@@ -11,7 +11,7 @@
   <section class="mansion-info" style="max-width: 1140px; margin-inline: auto;">
     <h3 class="section-h3">{{ $post->title }}</h3>
     <div class="flexbox">
-      <img src="{{ $post->getImageUrl("image") }}" alt="" style="aspect-ratio: 16/9; object-fit: contain;">
+      <img src="{{ $post->getImageUrl("image") }}" alt="">
     </div>
     <div class="mansion-detail">
       <p class="post-content" style="white-space: pre-wrap;">
