@@ -11,7 +11,7 @@ class AdminPostController extends Controller
 {
     public function index() {
         return view('pages.admin.posts', [
-            'posts' => Post::latest()->get()
+            'posts' => Post::orderBy('published_at', 'desc')->get()
         ]);
     }
     
