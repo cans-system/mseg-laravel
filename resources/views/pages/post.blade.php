@@ -14,9 +14,7 @@
       <img src="{{ $post->getImageUrl("image") }}" alt="">
     </div>
     <div class="mansion-detail">
-      <p class="post-content" style="white-space: pre-wrap;">
-        {{ $post->text }}
-      </p>
+      <p class="post-content" style="white-space: pre-wrap;">{{ $post->text }}</p>
     </div>
   </section>
 

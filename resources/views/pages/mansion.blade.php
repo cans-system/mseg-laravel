@@ -221,7 +221,7 @@
           @foreach ($mansions as $mansion)
             <li class="flex-item">
               <a href="./{{ $mansion->id }}">
-                <img src="{{ $mansion->getImageUrl("image1") }}" alt="">
+                <img src="{{ $mansion->getImageUrl("image") }}" alt="">
                 <p>{{ $mansion->title }}</p>
               </a>
             </li>
