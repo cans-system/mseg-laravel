@@ -40,21 +40,6 @@
         </div>
       </li>
       <li class="field-item">
-        <div class="field-head"><label class="required">なまえ（ふりがな）</label></div>
-        <div class="field-body">
-          <div class="field-children">
-            <div class="child-field">
-              <div class="child-head"><label>せい</label></div>
-              <div class="child-body"><input type="text" name="first_name_gana"></div>
-            </div>
-            <div class="child-field">
-              <div class="child-head"><label>めい</label></div>
-              <div class="child-body"><input type="text" name="last_name_gana"></div>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li class="field-item">
         <div class="field-head"><label class="required">電話番号</label></div>
         <div class="field-body"><input type="tel" name="tel"></div>
       </li>

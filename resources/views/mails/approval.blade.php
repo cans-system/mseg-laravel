@@ -8,7 +8,6 @@
 <br>
 【お客様情報】<br>
 名前: {{ $request->first_name }} {{ $request->last_name }}<br>
-名前(ひらがな): {{ $request->first_name_gana }} {{ $request->last_name_gana }}<br>
 電話番号: {{ $request->tel }}<br>
 メールアドレス: {{ $request->email }}<br>
 <br>

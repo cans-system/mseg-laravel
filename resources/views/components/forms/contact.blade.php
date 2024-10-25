@@ -38,21 +38,6 @@
         </div>
       </li>
       <li class="field-item">
-        <div class="field-head"><label class="required">なまえ（ふりがな）</label></div>
-        <div class="field-body">
-          <div class="field-children">
-            <div class="child-field">
-              <div class="child-head"><label>せい</label></div>
-              <div class="child-body"><input type="text" name="first_name_gana"></div>
-            </div>
-            <div class="child-field">
-              <div class="child-head"><label>めい</label></div>
-              <div class="child-body"><input type="text" name="last_name_gana"></div>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li class="field-item">
         <div class="field-head"><label class="required">電話番号</label></div>
         <div class="field-body"><input type="tel" name="tel"></div>
       </li>
@@ -71,10 +56,6 @@
         <div class="field-head"><label class="required">部屋番号</label></div>
         <div class="field-body"><input type="text" name="room_number"></div>
       </li>
-      <li class="field-item">
-        <div class="field-head"><label class="required">物件所在地</label></div>
-        <div class="field-body"><input type="text" name="address"></div>
-      </li>
     </ul>
     <h3>お問い合わせ内容</h3>
     <ul class="field-list">
@@ -84,9 +65,10 @@
           <div class="select-wrapper">
             <select name="contact_content" id="">
               <option hidden>選択してください</option>
-              <option value="相続についてのご相談">相続についてのご相談</option>
-              <option value="買い替えについてのご相談">買い替えについてのご相談</option>
-              <option value="ポスティング不要のご依頼">ポスティング不要のご依頼</option>
+              <option value="相場が知りたい">相場が知りたい</option>
+              <option value="簡易査定をご相談">簡易査定をご相談</option>
+              <option value="書面査定書を希望">書面査定書を希望</option>
+              <option value="買取をご相談">買取をご相談</option>
               <option value="その他">その他</option>
             </select>
           </div>
