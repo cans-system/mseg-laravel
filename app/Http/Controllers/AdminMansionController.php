@@ -11,8 +11,8 @@ use Illuminate\Http\Request;
 class AdminMansionController extends Controller
 {
     function index(Request $request) {        
-        $limit = $request->limit ?? 20;
-        $page = $request->page ?? 1;
+        $pageSize = $request->query('pageSize') ?? 20;
+
         $order = $request->order ?? 'latest';
         $address = $request->address ?? null;
         if ($address !== null) {
@@ -29,26 +29,21 @@ class AdminMansionController extends Controller
             $freeword = mb_convert_kana($freeword, 'ASKV');
         }
 
-        $query = Mansion::where('address', 'like', "%{$address}%")
-        ->whereAny(['title', 'address', 'access', 'note'], 'like', "%{$freeword}%");
-
-        $pgnt = \App\MyUtil::pagenation($limit, $query->count(), $page);
-        $offset = $pgnt["offset"];
-
-        $mansions = $query
-        ->when($order == "latest", function (Builder $query) {
-            $query->latest();
-        }, function (Builder $query) use ($order) {
-            $query->when($order == "price", function (Builder $query) {
-                $query->orderBy('unit_price');
-            }, function (Builder $query) {
-                $query->orderBy('unit_price', 'desc');
-            });
-        })
-        ->skip($offset)->take($limit)->get();
+        $mansions = Mansion::where('address', 'like', "%{$address}%")
+            ->whereAny(['title', 'address', 'access', 'note'], 'like', "%{$freeword}%")
+            ->when($order == "latest", function (Builder $query) {
+                $query->latest();
+            }, function (Builder $query) use ($order) {
+                $query->when($order == "price", function (Builder $query) {
+                    $query->orderBy('unit_price');
+                }, function (Builder $query) {
+                    $query->orderBy('unit_price', 'desc');
+                });
+            })
+            ->paginate($pageSize)
+            ->withQueryString();;
 
         return view('pages.admin.mansions', [
-            'pgnt' => $pgnt,
             'mansions' => $mansions
         ]);
     }

@@ -12,37 +12,39 @@
         <div class="flexbox">
           <div class="address">
             <label for="">名古屋市中村区</label>
-            <input type="text" name="address" placeholder="以降の住所" value="{{ $_GET["address"] ?? "" }}">
+            <input type="text" name="address" placeholder="以降の住所" value="{{ request()->query("address") }}">
           </div>
           <div class="freeword">
-            <input type="text" name="freeword" placeholder="フリーワード" value="{{ $_GET["freeword"] ?? "" }}">
+            <input type="text" name="freeword" placeholder="フリーワード" value="{{ request()->query("freeword") }}">
           </div>
           <div class="search-submit">
-            <button type="submit" id="searchFormSubmit"><span>検索</span></button>
+            <button type="submit"><span>検索</span></button>
           </div>
         </div>
       </form>
     </div>
     <div class="search-option">
-      <p class="">{{ "{$pgnt["sum"]}件中{$pgnt["current_start"]}～{$pgnt["current_end"]}件を表示" }}</p>
+      <p class="">{{ "{$mansions->total()}件中{$mansions->firstItem()}～{$mansions->lastItem()}件を表示" }}</p>
       <div class="flexbox">
         <div>
           <label for="">表示件数</label>
           <div class="select-wrapper">
-            <select name="limit" class="searchLimit" id="searchLimit" form="searchForm">
-              <option value="20">20件</option>
-              <option value="40">40件</option>
-              <option value="60">60件</option>
+            <select name="pageSize" class="searchLimit" onchange="this.form.submit()" form="searchForm">
+              @foreach ([20, 40, 60] as $item)
+                <option value="{{ $item }}" @selected(request()->query('pageSize') == $item)>
+                  {{ $item }}件
+                </option>
+              @endforeach
             </select>
           </div>
         </div>
         <div>
           <label for="">並び順</label>
           <div class="select-wrapper">
-            <select name="order" class="searchOrder" id="searchOrder" form="searchForm">
-              <option value="latest">新着順</option>
-              <option value="price">価格の安い順</option>
-              <option value="price-desc">価格の高い順</option>
+            <select name="order" onchange="this.form.submit()" form="searchForm">
+              <option value="latest" @selected(request()->query('order') == 'latest')>新着順</option>
+              <option value="price" @selected(request()->query('order') == 'price')>価格の安い順</option>
+              <option value="price-desc" @selected(request()->query('order') == 'price-desc')>価格の高い順</option>
             </select>
           </div>
         </div>
@@ -123,7 +125,7 @@
         @endforeach
       </ul>
     </div>
-    <x-pagenation :pgnt="$pgnt" />
+    {{ $mansions->links() }}
   </div>
   <script src="{{ asset('script/clean_query.js') }}" defer></script>
   <script src="{{ asset('script/search.js') }}" defer></script>

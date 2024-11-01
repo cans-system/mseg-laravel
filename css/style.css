@@ -2569,38 +2569,38 @@ footer .copyright {
     gap: 16px;
   }
 }
-.search-result .search-results .grid-list .grid-item a {
+.search-result .search-results .grid-list .grid-item {
   height: 100%;
   display: flex;
   flex-direction: column;
 }
-.search-result .search-results .grid-list .grid-item a img {
+.search-result .search-results .grid-list img {
   width: 100%;
   aspect-ratio: 5/3;
   border: 1px solid #000;
   object-fit: cover;
 }
-.search-result .search-results .grid-list .grid-item a div {
+.search-result .search-results .grid-list div {
   flex-grow: 1;
   padding: 12px 20px;
   background-color: #000;
 }
 @media screen and (max-width: 599px) {
-  .search-result .search-results .grid-list .grid-item a div {
+  .search-result .search-results .grid-list div {
     padding: 10px 6%;
   }
 }
-.search-result .search-results .grid-list .grid-item a div p {
+.search-result .search-results .grid-list div p {
   color: #fff;
   font-size: 18px;
 }
 @media screen and (max-width: 991px) {
-  .search-result .search-results .grid-list .grid-item a div p {
+  .search-result .search-results .grid-list div p {
     font-size: 16px;
   }
 }
 @media screen and (max-width: 599px) {
-  .search-result .search-results .grid-list .grid-item a div p {
+  .search-result .search-results .grid-list div p {
     font-size: 14px;
   }
 }
@@ -3391,5 +3391,3 @@ footer .copyright {
 .post-content {
   line-height: 2.25rem;
 }
-
-/*# sourceMappingURL=style.css.map */
